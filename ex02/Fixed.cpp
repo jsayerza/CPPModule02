@@ -114,6 +114,62 @@ Fixed Fixed::operator+( const Fixed& fpNum ) const
 	return (fpResult);
 }
 
+Fixed Fixed::operator-( const Fixed& fpNum ) const
+{
+	Fixed fpResult;
+	fpResult.setRawBits(this->_fpNumValue - fpNum._fpNumValue);
+	return (fpResult);
+}
+
+Fixed Fixed::operator*( const Fixed& fpNum ) const
+{
+	Fixed fpResult;
+	long tempVal = (long)this->_fpNumValue * (long)fpNum._fpNumValue;
+	fpResult.setRawBits((int)(tempVal >> fpResult._numFractBits));
+	return (fpResult);
+}
+
+Fixed Fixed::operator/( const Fixed& fpNum ) const
+{
+	Fixed fpResult;
+	long tempVal = ((long)this->_fpNumValue << this->_numFractBits);
+	fpResult.setRawBits((int)(tempVal / fpNum._fpNumValue));
+	return (fpResult);
+}
+
+
+// Funcions increment / decrement, pre / post
+// Pre-Increment (++a)
+Fixed& Fixed::operator++( void )
+{
+	this->_fpNumValue += (1 << _numFractBits);
+	return (*this);
+}
+
+// Post-Increment (a++)
+Fixed Fixed::operator++( int )
+{
+	Fixed	tempValue(*this);
+	tempValue._fpNumValue += (1 << _numFractBits);
+	return (tempValue);
+}
+
+// Pre-Decrement (--a)
+Fixed& Fixed::operator--( void )
+{
+	this->_fpNumValue -= (1 << _numFractBits);
+	return (*this);
+}
+
+// Post-Decrement (a--)
+Fixed Fixed::operator--( int )
+{
+	Fixed	tempValue(*this);
+	tempValue._fpNumValue -= (1 << _numFractBits);
+	return (tempValue);
+}
+
+
 // Funcions externes
 std::ostream& operator<<( std::ostream& oStream, const Fixed& fpNum )
 {

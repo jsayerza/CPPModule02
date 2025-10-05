@@ -56,5 +56,60 @@ int main( void )
 	std::cout << c << "+" << d << ": " << e << std::endl;
 	std::cout << std::endl;
 
+	e = c - d;
+	std::cout << c << "-" << d << ": " << e << std::endl;
+	std::cout << std::endl;
+
+	a = 3;
+	b = 4;
+	e = a * b;
+	std::cout << a << "*" << b << ": " << e << std::endl;
+	std::cout << std::endl;
+
+	a = 6;
+	b = 4;
+	e = a / b;
+	std::cout << a << "/" << b << ": " << e << std::endl;
+	std::cout << std::endl;
+
+    Fixed aaa(5.5f);
+    Fixed bbb;
+    
+    std::cout << "Inicial: aaa = " << aaa << std::endl;
+    
+    // PRE-INCREMENT
+    bbb = ++aaa;
+    std::cout << "Després de ++aaa:" << std::endl;
+    std::cout << "  aaa = " << aaa << std::endl;
+    std::cout << "  bbb = " << bbb << std::endl;
+	std::cout << std::endl;
+    
+    // POST-INCREMENT
+    bbb = aaa++;
+    std::cout << "Després de aaa++:" << std::endl;
+    std::cout << "  aaa = " << aaa << std::endl;
+    std::cout << "  bbb = " << bbb << std::endl;
+	std::cout << std::endl;
+
+    Fixed ccc(5.5f);
+    Fixed ddd;
+    
+    std::cout << "Inicial: ccc = " << ccc << std::endl;
+    
+    // PRE-DECREMENT
+    ddd = --ccc;
+    std::cout << "Després de --ccc:" << std::endl;
+    std::cout << "  ccc = " << ccc << std::endl;
+    std::cout << "  ddd = " << ddd << std::endl;
+	std::cout << std::endl;
+    
+    // POST-DECREMENT
+    ddd = ccc--;
+    std::cout << "Després de ccc--:" << std::endl;
+    std::cout << "  ccc = " << ccc << std::endl;
+    std::cout << "  ddd = " << ddd << std::endl;
+	std::cout << std::endl;
+
+
 	return (0);
 }

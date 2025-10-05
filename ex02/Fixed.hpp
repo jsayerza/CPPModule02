@@ -44,6 +44,15 @@ public:
 	bool operator!=( const Fixed& fpNum ) const;
 
 	Fixed operator+( const Fixed& fpNum ) const;
+	Fixed operator-( const Fixed& fpNum ) const;
+	Fixed operator*( const Fixed& fpNum ) const;
+	Fixed operator/( const Fixed& fpNum ) const;
+
+	Fixed operator++( int );
+	Fixed& operator++( void );
+	Fixed operator--( int );
+	Fixed& operator--( void );
+
 };
 
 std::ostream& operator<<( std::ostream& oStream, const Fixed& fpNum );
