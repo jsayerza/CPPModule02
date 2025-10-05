@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 12:00:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/10/04 12:00:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/10/05 11:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/10/05 11:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed( const int intValue )
 	this->_fpNumValue = intValue << this->_numFractBits;
 }
 
-Fixed::Fixed( const float floatValue)
+Fixed::Fixed( const float floatValue )
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->_fpNumValue = round(floatValue * (1 << this->_numFractBits));
@@ -50,6 +50,8 @@ Fixed::~Fixed( void )
 	std::cout << "Destructor called" << std::endl;
 }
 
+
+// Funcios member
 int Fixed::getRawBits( void ) const
 {
 	// std::cout << "getRawBits member function called" << std::endl;
@@ -71,6 +73,48 @@ int	Fixed::toInt( void ) const
 	return (this->_fpNumValue >> this->_numFractBits);
 }
 
+
+// Operadors de comparació
+bool Fixed::operator>( const Fixed& fpNum ) const
+{
+	return (this->toFloat() > fpNum.toFloat());
+}
+
+bool Fixed::operator>=( const Fixed& fpNum ) const
+{
+	return (this->toFloat() >= fpNum.toFloat());
+}
+
+bool Fixed::operator<( const Fixed& fpNum ) const
+{
+	return (this->toFloat() < fpNum.toFloat());
+}
+
+bool Fixed::operator<=( const Fixed& fpNum ) const
+{
+	return (this->toFloat() <= fpNum.toFloat());
+}
+
+bool Fixed::operator==( const Fixed& fpNum ) const
+{
+	return (this->toFloat() == fpNum.toFloat());
+}
+
+bool Fixed::operator!=( const Fixed& fpNum ) const
+{
+	return (this->toFloat() != fpNum.toFloat());
+}
+
+
+// Operadors aritmetics
+Fixed Fixed::operator+( const Fixed& fpNum ) const
+{
+	Fixed fpResult;
+	fpResult.setRawBits(this->_fpNumValue + fpNum._fpNumValue);
+	return (fpResult);
+}
+
+// Funcions externes
 std::ostream& operator<<( std::ostream& oStream, const Fixed& fpNum )
 {
 	oStream << fpNum.toFloat();

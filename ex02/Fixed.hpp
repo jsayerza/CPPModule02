@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 11:00:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/10/04 11:00:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/10/05 11:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/10/05 11:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ public:
 	void	setRawBits( int const raw );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
+
+	bool operator>( const Fixed& fpNum )  const;
+	bool operator>=( const Fixed& fpNum ) const;
+	bool operator<( const Fixed& fpNum )  const;
+	bool operator<=( const Fixed& fpNum ) const;
+	bool operator==( const Fixed& fpNum ) const;
+	bool operator!=( const Fixed& fpNum ) const;
+
+	Fixed operator+( const Fixed& fpNum ) const;
 };
 
 std::ostream& operator<<( std::ostream& oStream, const Fixed& fpNum );
