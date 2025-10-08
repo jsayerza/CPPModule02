@@ -110,6 +110,13 @@ int main( void )
     std::cout << "  ddd = " << ddd << std::endl;
 	std::cout << std::endl;
 
+	a = 100;
+	b = 20;
+    std::cout << Fixed::min(a, b) << std::endl;
+    std::cout << Fixed::min(c, d) << std::endl;
+    std::cout << Fixed::max(c, b) << std::endl;
+    std::cout << Fixed::max(a, d) << std::endl;
+	std::cout << std::endl;
 
 	return (0);
 }
